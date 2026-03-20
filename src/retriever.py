@@ -4,6 +4,7 @@ from langchain_community.document_loaders import PyPDFLoader
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
+import streamlit as st
 
 load_dotenv()
 
@@ -76,9 +77,14 @@ Question: {question}
 Answer:"""
     
     # Step 4 - Send to GPT-4o-mini and get answer
+    try:
+        token = st.secrets["GITHUB_TOKEN"]
+    except:
+        token = os.getenv("GITHUB_TOKEN")
+
     client = OpenAI(
-        base_url="https://models.inference.ai.azure.com",
-        api_key=os.getenv("GITHUB_TOKEN")
+    base_url="https://models.inference.ai.azure.com",
+    api_key=token
     )
     
     response = client.chat.completions.create(
