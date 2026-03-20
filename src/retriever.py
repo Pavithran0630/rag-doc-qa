@@ -79,8 +79,10 @@ Answer:"""
     # Step 4 - Send to GPT-4o-mini and get answer
     try:
         token = st.secrets["GITHUB_TOKEN"]
-    except:
+    except Exception:
         token = os.getenv("GITHUB_TOKEN")
+    if not token:
+        raise ValueError("GITHUB_TOKEN not found in secrets or environment!")
 
     client = OpenAI(
     base_url="https://models.inference.ai.azure.com",
