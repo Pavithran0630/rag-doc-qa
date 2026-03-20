@@ -57,7 +57,7 @@ def ask_question(question, vector_store):
     print(f"\nQuestion: {question}")
     
     # Step 1 - Retrieve relevant chunks from FAISS
-    chunks = vector_store.similarity_search(question, k=3)
+    chunks = vector_store.similarity_search(question, k=5)
     
     # Step 2 - Combine chunks into one context string
     context = "\n\n".join([chunk.page_content for chunk in chunks])
