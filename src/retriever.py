@@ -64,7 +64,9 @@ def ask_question(question, vector_store):
     
     # Step 3 - Build prompt with context + question
     prompt = f"""You are a helpful assistant. Answer the question 
-based only on the context provided below.
+based ONLY on the context provided below.
+If the answer is not found in the context, say 
+"I don't know based on the provided document."
 
 Context:
 {context}
