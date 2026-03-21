@@ -77,4 +77,5 @@ if uploaded_file is not None:
                 except Exception as e:
                     st.error(f"Error getting answer: {str(e)}")
 
+    # Instruction for uploading new PDF
     st.info("To upload a new PDF, click the X next to the filename above and browse a new file.")
