@@ -78,6 +78,8 @@ if uploaded_file is not None:
                     st.error(f"Error getting answer: {str(e)}")
 
     # Clear button
+    # Clear button
     if st.button("Upload a new PDF"):
-        del st.session_state.vector_store
+        for key in list(st.session_state.keys()):
+            del st.session_state[key]
         st.rerun()
