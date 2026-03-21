@@ -77,9 +77,4 @@ if uploaded_file is not None:
                 except Exception as e:
                     st.error(f"Error getting answer: {str(e)}")
 
-    # Clear button
-    # Clear button
-    if st.button("Upload a new PDF"):
-        for key in list(st.session_state.keys()):
-            del st.session_state[key]
-        st.rerun()
+    st.info("To upload a new PDF, click the X next to the filename above and browse a new file.")
